@@ -26,7 +26,7 @@ jobs:
     - name: Write secret to file
       shell: bash
       run: |
-        echo "${{ secrets.MY_SECRET }}" > ${{ runner.temp }}/artifact/mysecret.txt
+        echo "${{ secrets.MY_SECRET }}" > ${{ runner.temp }}/mysecret.txt
   Publish-artifact:
     runs-on: ubuntu-latest
     needs: write-secret-to-file
@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with: 
         name: mysecret.txt
-        path: ${{ runner.temp }}/artifact
+        path: ${{ runner.temp }}/mysecret.txt
 
 
 
