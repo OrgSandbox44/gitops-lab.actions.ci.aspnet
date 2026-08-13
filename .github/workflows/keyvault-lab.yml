@@ -22,12 +22,12 @@ jobs:
     - name: Write secret to file
       shell: bash
       run: |
-        echo "$MY_SECRET" > ${{ runner.temp }}/mysecret
+        echo "$MY_SECRET" > mysecret.txt
     - name: Upload the secret artifact
       uses: actions/upload-artifact@v7
       with: 
         name: mysecret
-        path: ${{ runner.temp }}/mysecret
+        path: mysecret.txt
 
 
 
