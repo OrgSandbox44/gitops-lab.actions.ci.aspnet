@@ -25,7 +25,8 @@ jobs:
     steps:
     - name: Write secret to file
       shell: bash
-      run: echo $MY_SECRET > mysecret
+      run: |
+        echo "${{ secrets.MY_SECRET }}" > ${{ runner.temp }}/artifact/mysecret.txt
   Publish-artifact:
     runs-on: ubuntu-latest
     needs: write-secret-to-file
