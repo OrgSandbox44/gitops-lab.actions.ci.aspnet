@@ -18,7 +18,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Read out KeyVault secrets
       shell: bash
-      run: MY_SECRET=$(az keyvault secret show --vault-name <your-key-vault-name> --name MySecret --query value -o tsv)
+      run: MY_SECRET=$(az keyvault secret show --vault-name kv-kevault-lab-bp --name MySecret --query value -o tsv)
   write-secret-to-file:
     runs-on: ubuntu-latest
     needs: read-secrets
