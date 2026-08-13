@@ -19,10 +19,6 @@ jobs:
     - name: Read out KeyVault secrets
       shell: bash
       run: MY_SECRET=$(az keyvault secret show --vault-name kv-kevault-lab-bp --name MySecret --query value -o tsv)
-  write-secret-to-file:
-    runs-on: ubuntu-latest
-    needs: read-secrets
-    steps:
     - name: Write secret to file
       shell: bash
       run: |
