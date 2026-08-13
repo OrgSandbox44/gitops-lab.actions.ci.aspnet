@@ -33,7 +33,8 @@ jobs:
     - name: Upload the secret artifact
       uses: actions/upload-artifact@v7
       with: 
-        name: mysecret.txt  
+        name: mysecret.txt
+        path: ${{ runner.temp }}/artifact
 
 
 
